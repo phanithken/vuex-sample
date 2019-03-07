@@ -3,6 +3,8 @@
         <button @click="decrement">-</button>
         <span>{{ $store.state.count }}</span>
         <button @click="increment">+</button>
+
+        <button @click="test">XD</button>
     </figure>
 </template>
 
@@ -19,8 +21,16 @@ export default {
         // component method handing decrement store dispatch action
         decrement: function (event) {
             this.$store.dispatch('decrement')
+        },
+
+        test: function () {
+            this.$store.dispatch('setTest')
         }
 
+    },
+
+    created () {
+        console.log(this.$store.state.a)
     }
 }
 </script>

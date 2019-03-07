@@ -3,7 +3,27 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const moduleA = {
+  state: {
+    test: 0
+  },
+  mutations: {
+    SET_TEST (state) {
+      state.test++
+    }
+  },
+  actions: {
+    setTest ({ commit }) {
+      console.log('***** set test ******')
+      commit('SET_TEST')
+    }
+  }
+}
+
 export default new Vuex.Store({
+  modules: {
+    a: moduleA
+  },
   state: {
     count: 0,
     username: '',
